@@ -2,3 +2,4 @@ Flask
 ultralytics
 torch
 streamlit
+streamlit_webrtc
