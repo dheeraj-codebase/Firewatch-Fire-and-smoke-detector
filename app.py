@@ -11,7 +11,7 @@ import os
 temp_dir = tempfile.TemporaryDirectory()
 
 def main():
-    st.title("YOLO Object Detection!")
+    st.title("FireWatch!")
     pg_bg = '''
         <style>
         body {
@@ -27,8 +27,9 @@ def main():
     choice = st.sidebar.selectbox("Select Option", menu)
 
     if choice == "Home":
-        st.subheader("FireWatch")
-        st.markdown("Please choose any of the options from the Menu to continue..")
+        st.caption('_Every fire alarm is a heartbeat, every extinguished flame a saved life._')
+        st.caption(':blue[In the ashes of devastation, we find the importance of prevention.]')
+        st.subheader("Please choose any of the options from the Menu to continue..")
 
     elif choice == "Webcam":
         st.subheader("Webcam Detection")
