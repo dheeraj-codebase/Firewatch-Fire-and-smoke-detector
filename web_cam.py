@@ -6,7 +6,7 @@ def webcam():
     # Define class names (modify according to your classes)
     class_names = ["Fire", "default", "smoke"]
     model = YOLO("best.pt")
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(cv2.CAP_ANY)
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
     fps = int(cap.get(cv2.CAP_PROP_FPS))
