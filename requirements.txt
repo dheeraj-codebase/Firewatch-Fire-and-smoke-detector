@@ -1,4 +1,3 @@
-Flask
 ultralytics
 torch
 streamlit

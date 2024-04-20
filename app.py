@@ -1,32 +1,39 @@
 import streamlit as st
-from ultralytics import YOLO
-import web_cam
+#import web_cam
+import web_cam_streamlit_file
 import videos
+#import videos2
 import images
 import tempfile
 import os
 
-# Load your pre-trained YOLOv8 model
-model_path = "best.pt"
-model = YOLO(model_path)
 
-class_names = ["default", "Fire", "smoke"]
 temp_dir = tempfile.TemporaryDirectory()
 
-
 def main():
-    st.title("YOLO Object Detection")
+    st.title("YOLO Object Detection!")
+    pg_bg = '''
+        <style>
+        body {
+        background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366");
+        background-size: cover;
+        }
+        </style>
+        '''
+
+    st.markdown(pg_bg, unsafe_allow_html=True)
 
     menu = ["Home", "Webcam", "Video", "Image"]
     choice = st.sidebar.selectbox("Select Option", menu)
 
     if choice == "Home":
-        st.subheader("Home")
-        st.markdown("Welcome to YOLO Object Detection")
+        st.subheader("FireWatch")
+        st.markdown("Please choose any of the options from the Menu to continue..")
 
     elif choice == "Webcam":
         st.subheader("Webcam Detection")
-        web_cam.webcam()
+        #web_cam.webcam()
+        web_cam_streamlit_file.main()
 
     elif choice == "Video":
         st.subheader("Video Detection")

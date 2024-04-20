@@ -1,13 +1,13 @@
-from PIL import Image
+import streamlit as st
 from ultralytics import YOLO
 import cv2
 
 
 def image_detect(path):
-    # Load your pre-trained YOLOv8 model
+    # Load pre-trained model
     model = YOLO("best.pt")
 
-    # Define class names (modify according to your classes)
+    # Class names
     class_names = ["Fire", "default", "smoke"]
 
     im = cv2.imread(path)
@@ -23,6 +23,7 @@ def image_detect(path):
     # score = f"{conf:.2f}"
     color = (0, 255, 0) if label == "default" else (0, 0, 255)
     cv2.rectangle(im, (x1, y1), (x2, y2), color, 2)
-    cv2.putText(im, f"{label}", (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
-    cv2.imshow("Detection", im)
-    cv2.waitKey(0)
+    image_final = cv2.putText(im, f"{label}", (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
+    st.image(image_final)
+    #cv2.imshow("Detection", im)
+    #cv2.waitKey(0)
